@@ -34,6 +34,10 @@ This app combines **Google Gemini (LLMs + TTS)**, **AssemblyAI (Speech-to-Text)*
 
 ## 🧠 Architecture Overview
 
+Below is the dual-mode pipeline of Chat & Talk with PDF, showing how text and voice inputs flow through RAG and TTS/STT modules.
+
+![Model Pipeline](https://github.com/SannidhyaDas/talk2pdf-multilingual/blob/main/page_images/chatRAG_pipeline.drawio.png)
+
 ---
 ## 📦 Installation
 
