@@ -1,6 +1,8 @@
 # talk2pdf-multilingual (🌐 [Live Demo](https://sannidhya-das-talk2pdf-multilingual.streamlit.app/) )
 
-![App Interface 1](https://github.com/SannidhyaDas/talk2pdf-multilingual/blob/main/page_images/appInterface_1.png)    ![App Interface 2](https://github.com/SannidhyaDas/talk2pdf-multilingual/blob/main/page_images/appInterface_2.png)
+![App Interface 1](https://github.com/SannidhyaDas/talk2pdf-multilingual/blob/main/page_images/appInterface_1.png)    
+
+![App Interface 2](https://github.com/SannidhyaDas/talk2pdf-multilingual/blob/main/page_images/appInterface_2.png)
 
 ## 🧠 Chat & Talk with PDF (Gemini + AssemblyAI)
 
@@ -40,6 +42,19 @@ This app combines **Google Gemini (LLMs + TTS)**, **AssemblyAI (Speech-to-Text)*
 Below is the dual-mode pipeline of Chat & Talk with PDF, showing how text and voice inputs flow through RAG and TTS/STT modules.
 
 ![Model Pipeline](https://github.com/SannidhyaDas/talk2pdf-multilingual/blob/main/page_images/chatRAG_pipeline.drawio.png)
+
+## 🧾 Key Pipeline Summary
+
+| Stage                    | Component                               | Function                        |
+| ------------------------ | --------------------------------------- | ------------------------------- |
+| **1. PDF Processing**    | `PyPDF2`, `LangChain`                   | Extracts and chunks PDF text    |
+| **2. Embedding & Store** | `GoogleGenerativeAIEmbeddings`, `FAISS` | Creates searchable vector DB    |
+| **3. Query Retrieval**   | `FAISS.similarity_search()`             | Finds relevant chunks           |
+| **4. QA Generation**     | `Gemini (ChatGoogleGenerativeAI)`       | Generates language-aware answer |
+| **5. Voice Input**       | `AssemblyAI API`                        | Converts speech → text          |
+| **6. Voice Output**      | `Gemini TTS`                            | Converts text → speech          |
+| **7. Frontend**          | `Streamlit`                             | Interactive UI                  |
+
 
 ---
 ## 📦 Installation
@@ -116,3 +131,26 @@ talk2pdf-multilingual/
 ├── README.md                   # Project documentation
 └── .env                  # API keys for Gemini and AssemblyAI. (Non-shareable/hidden)
 ```
+---
+## 📚 Example Use Cases
+
+This project demonstrates how Generative AI can move beyond experimentation and deliver *real business and societal impact*.  
+Below are some thoughtful and practical applications that show how such an AI assistant can enhance productivity, accessibility, and decision-making across domains:
+
+- 📄 **Interactive Research Companion:**  
+  Seamlessly study or summarize complex academic PDFs, extracting key insights and simplifying technical language for faster understanding.  
+  Ideal for students, researchers, and data analysts who deal with dense, information-heavy documents.
+
+- 🎧 **Voice-Based Q&A for Accessibility:**  
+  Enables hands-free, voice-driven interaction with documents — making AI assistance more inclusive for users with visual impairments or those multitasking.  
+  This feature bridges technology with accessibility, turning information into a truly universal resource.
+
+- 🌐 **Multilingual Knowledge Assistant:**  
+  Supports multiple languages for document understanding and interaction, allowing teams across geographies to collaborate effortlessly.  
+  This promotes global reach and knowledge democratization within enterprises.
+
+- 🧾 **Enterprise Knowledge Base Querying:**  
+  Acts as a smart interface to corporate documentation, product manuals, or client data — helping employees instantly retrieve critical information.  
+  Reduces search time, improves onboarding, and supports better business decisions through natural language queries.
+
+Each of these use cases reflects the broader mission — **to make AI intuitive, human-centric, and directly useful in real-world workflows.**
