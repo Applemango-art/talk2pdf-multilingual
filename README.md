@@ -43,7 +43,7 @@ Below is the dual-mode pipeline of Chat & Talk with PDF, showing how text and vo
 
 ![Model Pipeline](https://github.com/SannidhyaDas/talk2pdf-multilingual/blob/main/page_images/chatRAG_pipeline.drawio.png)
 
-## 🧾 Key Pipeline Summary
+### 🧾 Key Pipeline Summary
 
 | Stage                    | Component                               | Function                        |
 | ------------------------ | --------------------------------------- | ------------------------------- |
@@ -135,7 +135,7 @@ talk2pdf-multilingual/
 ## 📚 Example Use Cases
 
 This project demonstrates how Generative AI can move beyond experimentation and deliver *real business and societal impact*.  
-Below are some thoughtful and practical applications that show how such an AI assistant can enhance productivity, accessibility, and decision-making across domains:
+Below are some practical applications that show how such an AI assistant can enhance productivity, accessibility, and decision-making across domains:
 
 - 📄 **Interactive Research Companion:**  
   Seamlessly study or summarize complex academic PDFs, extracting key insights and simplifying technical language for faster understanding.  
@@ -153,4 +153,3 @@ Below are some thoughtful and practical applications that show how such an AI as
   Acts as a smart interface to corporate documentation, product manuals, or client data — helping employees instantly retrieve critical information.  
   Reduces search time, improves onboarding, and supports better business decisions through natural language queries.
 
-Each of these use cases reflects the broader mission — **to make AI intuitive, human-centric, and directly useful in real-world workflows.**
