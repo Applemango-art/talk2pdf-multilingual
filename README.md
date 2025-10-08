@@ -1,4 +1,7 @@
 # talk2pdf-multilingual (🌐 [Live Demo](https://sannidhya-das-talk2pdf-multilingual.streamlit.app/) )
+
+![App Interface 1](https://github.com/SannidhyaDas/talk2pdf-multilingual/blob/main/page_images/appInterface_1.png)    ![App Interface 2](https://github.com/SannidhyaDas/talk2pdf-multilingual/blob/main/page_images/appInterface_2.png)
+
 ## 🧠 Chat & Talk with PDF (Gemini + AssemblyAI)
 
 Interact with your PDFs using **chat or voice** — in **multiple languages**!  
@@ -106,6 +109,10 @@ talk2pdf-multilingual/
 ├── v1app.py             # same logics and functions but without voice chat feature. (version 1) 
 ├── test.ipynb           # testing script with examples and explanations. 
 ├── requirements.txt            # Python dependencies
+├── app_images/             # working pipeline and app interface .png files
+│   ├── appInterface.png
+│   ├── appInterface.png
+│   └── chatRAGpipeline.drawio.png        # Main working pipeline
 ├── README.md                   # Project documentation
 └── .env                  # API keys for Gemini and AssemblyAI. (Non-shareable/hidden)
 ```
