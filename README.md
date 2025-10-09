@@ -125,8 +125,8 @@ talk2pdf-multilingual/
 ├── test.ipynb           # testing script with examples and explanations. 
 ├── requirements.txt            # Python dependencies
 ├── app_images/             # working pipeline and app interface .png files
-│   ├── appInterface.png
-│   ├── appInterface.png
+│   ├── appInterface_1.png
+│   ├── appInterface_2.png
 │   └── chatRAGpipeline.drawio.png        # Main working pipeline
 ├── README.md                   # Project documentation
 └── .env                  # API keys for Gemini and AssemblyAI. (Non-shareable/hidden)
