@@ -1,4 +1,3 @@
-import numpy as np
 import os
 import time
 import io
@@ -42,26 +41,11 @@ def get_text_chunks(text):
     splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
     return splitter.split_text(text)
 
-def get_vector_store(chunks):
-    batch_size = 10  # keep tiny to avoid quota spikes
-    all_pairs = []
-
-    for i in range(0, len(chunks), batch_size):
-        batch = chunks[i:i + batch_size]
-        try:
-            vectors = embeddings.embed_documents(batch)
-            all_pairs.extend([(vectors[j], batch[j]) for j in range(len(batch))])
-        except Exception as e:
-            print(f"Batch {i // batch_size} failed: {e}")
-            continue
-
-    if not all_pairs:
-        raise ValueError("No embeddings were generated. Possibly due to quota issues.")
-
-    store = FAISS.from_embeddings(all_pairs)
+def get_vector_store(text_chunks):
+    embeddings = GoogleGenerativeAIEmbeddings(model="models/gemini-embedding-001")
+    store = FAISS.from_texts(text_chunks, embedding=embeddings)
     store.save_local("faiss_index")
     return store
-
 
 # -----------------------------
 # RAG: Gemini QA chain
@@ -182,8 +166,4 @@ def assemblyai_transcribe_bytes(file_bytes, app_lang_code):
         if status == "error":
             raise RuntimeError(j.get("error", "Transcription failed"))
         time.sleep(2)
-
-
-
-
 
