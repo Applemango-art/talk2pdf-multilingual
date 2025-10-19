@@ -43,9 +43,26 @@ def get_text_chunks(text):
 
 def get_vector_store(text_chunks):
     embeddings = GoogleGenerativeAIEmbeddings(model="models/gemini-embedding-001")
-    store = FAISS.from_texts(text_chunks, embedding=embeddings)
+
+    # ---- NEW: manual batching to avoid Gemini API errors ----
+    def embed_in_batches(chunks, batch_size=10):
+        all_vectors = []
+        for i in range(0, len(chunks), batch_size):
+            batch = chunks[i:i + batch_size]
+            try:
+                batch_vectors = embeddings.embed_documents(batch)
+                all_vectors.extend(batch_vectors)
+            except Exception as e:
+                print(f"Batch {i//batch_size + 1} failed: {e}")
+        return all_vectors
+
+    vectors = embed_in_batches(text_chunks, batch_size=10)
+
+    # Build FAISS index manually
+    store = FAISS.from_embeddings(zip(vectors, text_chunks))
     store.save_local("faiss_index")
     return store
+
 
 # -----------------------------
 # RAG: Gemini QA chain
@@ -166,5 +183,6 @@ def assemblyai_transcribe_bytes(file_bytes, app_lang_code):
         if status == "error":
             raise RuntimeError(j.get("error", "Transcription failed"))
         time.sleep(2)
+
 
 
