@@ -1,3 +1,4 @@
+import numpy as np
 import os
 import time
 import io
@@ -41,32 +42,23 @@ def get_text_chunks(text):
     splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
     return splitter.split_text(text)
 
-def get_vector_store(text_chunks):
-    embeddings = GoogleGenerativeAIEmbeddings(model="models/gemini-embedding-001")
+def get_vector_store(chunks):
+    batch_size = 10  # keep tiny to avoid quota spikes
+    all_pairs = []
 
-    # ---- NEW: manual batching to avoid Gemini API errors ----
-    def embed_in_batches(chunks, batch_size=10):
-        all_vectors = []
-        for i in range(0, len(chunks), batch_size):
-            batch = chunks[i:i + batch_size]
-            try:
-                batch_vectors = embeddings.embed_documents(batch)
-                all_vectors.extend(batch_vectors)
-            except Exception as e:
-                print(f"Batch {i//batch_size + 1} failed: {e}")
-        return all_vectors
+    for i in range(0, len(chunks), batch_size):
+        batch = chunks[i:i + batch_size]
+        try:
+            vectors = embeddings.embed_documents(batch)
+            all_pairs.extend([(vectors[j], batch[j]) for j in range(len(batch))])
+        except Exception as e:
+            print(f"Batch {i // batch_size} failed: {e}")
+            continue
 
-    # Optional cleanup (filter very small garbage chunks from repeated headers, etc.)
-    text_chunks = [c for c in text_chunks if len(c.strip()) > 20]
+    if not all_pairs:
+        raise ValueError("No embeddings were generated. Possibly due to quota issues.")
 
-    vectors = embed_in_batches(text_chunks, batch_size=10)
-
-    
-    store = FAISS.from_embeddings(
-        embeddings=list(zip(vectors, text_chunks)),
-        embedding=embeddings
-    )
-
+    store = FAISS.from_embeddings(all_pairs)
     store.save_local("faiss_index")
     return store
 
@@ -190,6 +182,7 @@ def assemblyai_transcribe_bytes(file_bytes, app_lang_code):
         if status == "error":
             raise RuntimeError(j.get("error", "Transcription failed"))
         time.sleep(2)
+
 
 
 
