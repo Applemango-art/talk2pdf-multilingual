@@ -56,10 +56,17 @@ def get_vector_store(text_chunks):
                 print(f"Batch {i//batch_size + 1} failed: {e}")
         return all_vectors
 
+    # Optional cleanup (filter very small garbage chunks from repeated headers, etc.)
+    text_chunks = [c for c in text_chunks if len(c.strip()) > 20]
+
     vectors = embed_in_batches(text_chunks, batch_size=10)
 
-    # Build FAISS index manually
-    store = FAISS.from_embeddings(zip(vectors, text_chunks))
+    
+    store = FAISS.from_embeddings(
+        embeddings=list(zip(vectors, text_chunks)),
+        embedding=embeddings
+    )
+
     store.save_local("faiss_index")
     return store
 
@@ -183,6 +190,7 @@ def assemblyai_transcribe_bytes(file_bytes, app_lang_code):
         if status == "error":
             raise RuntimeError(j.get("error", "Transcription failed"))
         time.sleep(2)
+
 
 
 
