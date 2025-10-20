@@ -38,7 +38,7 @@ def get_pdf_text(pdf_docs):
     return text
 
 def get_text_chunks(text):
-    splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
+    splitter = RecursiveCharacterTextSplitter(chunk_size=10000, chunk_overlap=1000)
     return splitter.split_text(text)
 
 def get_vector_store(text_chunks):
@@ -166,4 +166,5 @@ def assemblyai_transcribe_bytes(file_bytes, app_lang_code):
         if status == "error":
             raise RuntimeError(j.get("error", "Transcription failed"))
         time.sleep(2)
+
 
